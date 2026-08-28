@@ -104,3 +104,13 @@ MANUAL REVIEW
               ┌─────────────────┐
               │ Assessment Report│
               └─────────────────┘
+
+
+# 🛠️ Getting Started
+
+## 📥 Clone the Project
+
+Clone the repository from GitHub to your local machine.
+
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git

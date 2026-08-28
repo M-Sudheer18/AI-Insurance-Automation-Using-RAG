@@ -68,3 +68,39 @@ The system produces one of three outcomes:
 APPROVED
 REJECTED
 MANUAL REVIEW
+
+
+              ┌─────────────────────┐
+              │   Insurance Policy  │
+              │     Documents       │
+              └──────────┬──────────┘
+                         │
+                         ▼
+                 ┌───────────────┐
+                 │   RAG / FAISS │
+                 │ Vector Search │
+                 └───────┬───────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────┐
+│             Claim Documents             │
+│                                         │
+│  Patient Info + Medical Bill + Report  │
+└──────────────────────┬──────────────────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │ Gemini AI    │
+                │ Claim Review │
+                └──────┬───────┘
+                       │
+             ┌─────────┼─────────┐
+             ▼         ▼         ▼
+        ┌────────┐ ┌────────┐ ┌──────────────┐
+        │APPROVED│ │REJECTED│ │MANUAL REVIEW │
+        └────────┘ └────────┘ └──────────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Assessment Report│
+              └─────────────────┘

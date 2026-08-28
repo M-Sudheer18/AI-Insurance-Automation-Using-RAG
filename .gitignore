@@ -1,0 +1,38 @@
+# Virtual environment
+claim_env/
+venv/
+env/
+.venv/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask / local files
+instance/
+*.log
+
+# Uploaded claim files
+uploads/*
+!uploads/.gitkeep
+
+# Generated claim reports
+reports/*
+!reports/.gitkeep
+
+# Local vector database
+vector_db/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

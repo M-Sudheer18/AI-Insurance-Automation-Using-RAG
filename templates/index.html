@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Claim Processing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+    <body>
+    <section>
+        <div class="bg-white  ">
+            <div class="relative isolate overflow-hidden bg-gradient-to-b from-blue-300/20 ">
+                <div class="mx-auto   max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-4">
+                    <div class="px-6 lg:px-0 lg:pt-4 ">
+                        <div class="mx-auto max-w-2xl  ">
+                            <div class="max-w-lg ">  
+                                <div class="mt-24 sm:mt-32 lg:mt-16">
+                                    <a href="#" class="inline-flex items-center gap-3">
+                                        <img
+                                            class="h-11 w-auto"
+                                            src="{{ url_for('static', filename='images/logo.jpg') }}"
+                                            alt="Insurance Claim Service">
+                                        <span class="text-xl font-bold text-gray-700">
+                                            INSURANCE CLAIM SERVICE
+                                        </span>
+                                        <span class="text-2xl text-gray-400">
+                                        </span>
+                                    </a>
+                                </div>
+                                <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">AI-powered Claims Processing</h1>
+                                <p class="mt-6 text-lg leading-8 text-gray-600">Simplify your claims process with our efficient and reliable service. We're here to support you every step of the way,
+                                ensuring a smooth and hassle-free experience during uncertain times.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-20 sm:mt-64 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen flex justify-center items-center bg-blue-300 rounded-tr-full rounded-bl-full rounded- ">                                           <img src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1711259786/uybnwvwbfyyq8ej8ziz0.gif" class="drop-shadow-2xl" height="250" width="250" alt="">        
+                        <div class="px-6 pb-14 sm:pt-6 pt-32 pl-1 sm:pl-3 font-bold font-mono text-md sm:text-2xl text-white drop-shadow-2xl">
+                            <p>Quick, <br> Reliable,<br> Hassle-Free <br> PROCESS</p>
+                        </div>
+                        <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 md:rounded-3xl"
+                            aria-hidden="true">
+                        </div>               
+                    </div>
+                <div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"></div>
+            </div>
+        </div>
+    </section>
+    <section class=" " >
+        <div class="space-y-5 divide-y divide-gray-900/10 max-w-7xl mx-auto px-6 lg:px-8 bg-gradient-to-t from-blue-600/20 py-4">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-0 md:grid-cols-[0.8fr_1.2fr]">
+                <div class="px-4 sm:px-0">
+                    <h2 class="text-2xl font-bold leading-7 text-gray-900 ">Insurance Claims</h2>
+                    <p class="mt-1 text-md leading-6 text-gray-600">Please provide accurate information to verify your claim.</p>
+                    <img src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1711281782/wjmjc8ggzcgx14gvl0sy.gif" width="300" height="300" alt="">
+                </div>
+                <form action="{{ url_for('process_claim') }}" method="POST" enctype="multipart/form-data">
+                    <div class="px-4 py-6 sm:p-8">
+                        <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div class="sm:col-span-4">
+                                <label for="name" class="block text-sm font-medium leading-8 text-gray-900">Patient Name</label>
+                                <div class="mt-2 ">
+                                    <input  type="text" id="name" name="name" autocomplete="name" required
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label for="policy_number"
+                                    class="block text-sm font-medium leading-6 text-gray-900">
+                                    Policy Number
+                                </label>
+                                <div class="mt-2">
+                                    <input type="text" id="policy_number" name="policy_number" required
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                                               focus:ring-blue-600 sm:text-sm">
+                                </div>
+                            </div>
+                            
+                            <div class="sm:col-span-3">
+                                <label>Email</label>
+                                <input type="email" name="email" required
+                                    class="pl-2 block w-full rounded-md border-0 py-1.5 ring-1 ring-gray-300">
+                            </div>
+                            
+                            <div class="sm:col-span-3">
+                                <label>Phone Number</label>
+                                <input type="tel" name="phone" required
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 ring-1 ring-gray-300">
+                            </div>
+                            
+                            <div class="sm:col-span-3">
+                                <label for="claim_type" class="block text-sm font-medium leading-6 text-gray-900">Claim item</label>
+                                <div class="mt-2">
+                                <select id="claim_type" name="claim_type" autocomplete="claim_type" required
+                                    class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                    <option selected disabled>Please Select</option>
+                                    <option value="General Practitoner">General Practitoner</option>
+                                    <option value="Specialist">Specialist</option>
+                                    <option value="Prescribed Western Medication">Prescribed Western Medication</option>
+                                    <option value="Diag. Imaging & Lab Tests">Diag. Imaging & Lab Tests</option>
+                                    <option value="Health Check-up">Health Check-up</option>
+                                    <option value="Bonesetter">Bonesetter</option>
+                                    <option value="Vaccination">Vaccination</option>
+                                    <option value="Specialist">Specialist</option>
+                                    <option value="Physiotherapist">Physiotherapist</option>
+                                    <option value="Chiropractor">Chiropractor</option>
+                                    <option value="Dental Consultation">Dental Consultation</option>
+                                    <option value="Psychiatric-related Treatments">Psychiatric-related Treatments</option>
+                                </select>
+                                </div>
+                            </div>
+                            
+                            <div class="sm:col-span-3">
+                                <label for="claim_reason" class="block text-sm font-medium leading-6 text-gray-900">Claim Reason</label>
+                                <div class="mt-2">
+                                    <input type="text" id="claim_reason" name="claim_reason" autocomplete="claim_reason" required
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            
+                            <div class="sm:col-span-6">
+                                <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Patient Address</label>
+                                <div class="mt-2">
+                                    <textarea id="address" name="address" rows="3" required
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-blue-600 sm:text-sm">
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="date" class="block text-sm font-medium leading-6 text-gray-900">Date of treatment</label>
+                                <div class="mt-2">
+                                    <input type="date" id="date" name="date" autocomplete="date"
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            
+                            <div class="sm:col-span-3">
+                                <label for="medical_facility" class="block text-sm font-medium leading-6 text-gray-900">Medical Facility</label>
+                                <div class="mt-2">
+                                    <input type="text" id="medical_facility" name="medical_facility" autocomplete="medical_facility" required
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-3">
+                                <label for="total_claim_amount" class="block text-sm font-medium leading-6 text-gray-900">Claim Amount</label>
+                                <div class="mt-2">
+                                    <input type="number" min="0" step="0.01" required id="total_claim_amount" name="total_claim_amount" autocomplete="total_claim_amount"
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-6">
+                                <div class="bg-blue-200 text-sm w-full p-4 rounded-xl font-light text-blue-800">
+                                    <p>📝 Make sure your payment receipt includes:</p>
+                                    <ul class="list-disc ml-8">
+                                        <li>The patient's name</li>
+                                        <li>Treatment date</li>
+                                        <li>Diagnosis</li>
+                                        <li>Breakdown of charges</li>
+                                    </ul>
+                                    <p class="py-3">Please note that some of the information might be printed at the back of the receipt.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sm:col-span-3">
+                                <label for="medical_bill" class="block text-sm font-medium leading-6 text-gray-900">Consultation Receipt</label>
+                                <div class="mt-2">
+                                    <input type="file" accept=".pdf" id="medical_bill" name="medical_bill" required autocomplete="medical_bill"
+                                        class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <!-- NEW: Added Patient Info / Medical Report Input to satisfy backend validators -->
+                            <div class="sm:col-span-3">
+                                <label for="patient_info" class="block text-sm font-medium leading-6 text-gray-900">Patient Information</label>
+                                <div class="mt-2">
+                                    <input type="file" accept=".pdf" id="patient_info" name="patient_info" required autocomplete="patient_info"
+                                           class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-3">
+                                <label for="medical_report" class="block text-sm font-medium"> Medical Report </label>
+                                <input type="file" id="medical_report" name="medical_report" accept=".pdf" required
+                                       class="pl-2 block w-full rounded-md border-0 py-1.5 ring-1 ring-gray-300">
+                            </div>
+
+                            <div class="sm:col-span-6">
+                                <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
+                                <div class="mt-2 ">
+                                    <input type="text" id="description" name="description" autocomplete="description"
+                                           class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start justify-start gap-x-6 border-t border-gray-900/10 w-3xl py-4 sm:px-8">
+                        <button id="submitBtn" type="submit"
+                            class="rounded-md bg-blue-600 px-4 py-3 text-white">
+                            Submit Claim
+                        </button>
+                    </div>
+
+                    <div id="loading" class="hidden mt-4 text-blue-700">
+                        ⏳ Processing Claim...
+                        Please wait while Gemini AI verifies your claim.
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        const form = document.querySelector("form");
+        const loading =
+        document.getElementById("loading");
+        const submitBtn =
+        document.getElementById("submitBtn");
+        form.addEventListener("submit", () => {
+        loading.classList.remove("hidden");
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Processing...";
+        });
+    </script>
+    </body>
+</html>
